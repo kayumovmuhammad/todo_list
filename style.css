@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #dbf9fd;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    gap: 10px;
+}
+
+.content_card {
+    background-color: #ffff;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 500px;
+    max-width: 100%;
+}
+
+.content_card h1 {
+    text-align: center;
+}
+
+.tasks {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    list-style-type: none;
+}
+
+.tasks li label.checked {
+    background-color: rgb(245, 245, 245);
+}
+
+.tasks li label {
+    border: 1px solid #e0e4ed;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 10px 40px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    user-select: none;
+}
+
+.tasks li label input[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+}
+.tasks li span {
+    width: 90%;
+    overflow-wrap: break-word;
+}
+
+.tasks li label input:checked {
+    accent-color: #008d9a;
+}
+
+.input_card {
+    z-index: 100;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.input_card .buttons_area {
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.input_card .buttons_area button {
+    padding: 10px 20px;
+    background-color: #008d9a;
+    color: #fff;
+
+    border: none;
+    border-radius: 5px;
+    flex: 1;
+}
+
+.input_card .buttons_area button:hover {
+    background-color: #019ba9;
+    cursor: pointer;
+}
+
+.input_task {
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid #e0e4ed;
+    border-radius: 5px;
+}
+
+.input_task:focus,
+.input_task:focus-visible,
+.input_task:focus-within {
+    outline: none;
+    border: 1px solid #ced0d6;
+}
+
+@keyframes hide {
+    from {
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+li.hide {
+    animation: hide 1s;
+}
+
+.task:hover {
+    cursor: pointer;
+}

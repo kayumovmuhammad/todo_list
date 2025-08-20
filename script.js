@@ -4,10 +4,20 @@ const tasks_list = document.querySelector(".tasks");
 const clear_btn = document.querySelector(".clear_tasks");
 const remove_selected_btn = document.querySelector(".remove_selected_tasks");
 
+tasks_list.innerHTML = localStorage.getItem(
+    "tasksInnerHTML",
+    tasks_list.innerHTML
+);
+
+function saveTasks() {
+    localStorage.setItem("tasksInnerHTML", tasks_list.innerHTML);
+}
+
 function addRemovable(element) {
     element.addEventListener("animationend", () => {
         if (element.classList.contains("hide")) {
             element.remove();
+            saveTasks();
         }
     });
 
@@ -40,6 +50,7 @@ function addElementToTasks() {
     input_task.value = "";
 
     addRemovable(taskElement);
+    saveTasks();
 }
 
 btn_task.addEventListener("click", addElementToTasks);
@@ -53,6 +64,7 @@ input_task.addEventListener("keydown", (event) => {
 
 clear_btn.addEventListener("click", () => {
     tasks_list.replaceChildren();
+    saveTasks();
 });
 
 remove_selected_btn.addEventListener("click", () => {
@@ -72,6 +84,7 @@ remove_selected_btn.addEventListener("click", () => {
     for (let task of removeTasks) {
         task.classList.add("hide");
     }
+    saveTasks();
 });
 
 document.querySelectorAll("li").forEach((element) => {
